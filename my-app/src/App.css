@@ -1,8 +1,46 @@
-body {
-  background-image: url("https://www.larutadelsorigens.cat/filelook/full/116/1160151/hd-pattern-wallpapers-1080p.png");
+.App {
   text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+
 }
 
-.jumbotron {
-background-color: #9ad398!important;
+.App #repos{
+  text-align: left;
+}
+
+.App UserIcon{
+  position: absolute;
+  left: 1000px;
+  top: 20;
+}
+
+#loading-statement{
+  position: relative;
+  top: 10px;
+  left:10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+body{
+  background-image: url('background.png');
+  background-size: 1450px 800px;
+  background-repeat: no-repeat;
+
+}
+
+#bold{
+  font-size: 30px;
+}
+
+
+element.style {
+  text-align: left;
+}
+
+#repos{
+  text-align: left;
 }
