@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import Popup from "reactjs-popup";
 import './App.css';
 import UserForm from "./components/UserForm";
 import styled from 'styled-components';
-import Chart from './components/Charts';
-import PieChart from './components/PieChart';
+
 
 
 
@@ -102,15 +100,6 @@ class App extends Component {
     const subA = size.slice(0,arrayLength);
     return(subA)
   }
-  getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
 
   getPieChartData(){
     const labelLangs = this.listOfLanguages()
@@ -135,33 +124,6 @@ class App extends Component {
         <p> <UserIcon src={this.state.avatar} alt="this.name" /></p>
         <p>{this.state.name} | {this.state.id}</p>
 
-        <div className='languages'>
-        <Popup scrolling="yes" trigger={<button className="button"> Programming Languages </button>} modal closeOnDocumentClick>
-          <div>
-          <div><PieChart pieChartData={this.state.pieChartData}/></div>
-          </div>
-        </Popup>
-        </div>
-
-
-        <div className='chart'>
-        <Popup scrolling="yes" trigger={<button className="button"> Followers</button>} modal closeOnDocumentClick>
-          <div>
-
-          <div><Chart chartData={this.state.chartData}/></div>
-          </div>
-        </Popup>
-        </div>
-
-
-        <div className='repos'>
-        <Popup  trigger={<button className="button"> Repos </button>} modal closeOnDocumentClick>
-          <div>
-            List of Repositories
-          {this.state.repos ? this.renderList() : null}
-          </div>
-        </Popup>
-        </div>
   </div>
     );
   }
