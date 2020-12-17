@@ -15,3 +15,16 @@ code {
     monospace;
 }
 
+
+footer {
+	margin-top: 70px;
+  color:  rgb(34, 2, 107);
+  font-size: 80%;
+}
+footer p {
+	text-align: right;
+	padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left:15px;
+  padding-right:15px
+}
