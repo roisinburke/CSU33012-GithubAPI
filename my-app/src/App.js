@@ -59,7 +59,9 @@ class App extends Component {
           this.renderInfo()
           :
           <p id="loading-statement">Search GitHub Username</p>}
-  
+      <footer>
+				<p>By Róisín Burke: 18328036</p>
+			</footer>
       </div>
 
     );
