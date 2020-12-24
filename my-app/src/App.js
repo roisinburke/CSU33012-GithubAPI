@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import Popup from "reactjs-popup";
 import './App.css';
 import UserForm from "./components/UserForm";
 import styled from 'styled-components';
@@ -33,8 +34,46 @@ class App extends Component {
         this.setState({ name, id, avatar, followers, following });
 
       })
+      await axios.get(repos)
+      .then((res) => {
+        const repos = res.data;
+        const languages = res.data;
+        this.setState({ repos , languages });
+      })
+  }
+  renderList() {
+    return (
+      <ul>
+        {this.state.repos.map(repo => (
+          <li  key={repo.id}>
+               {<img src={this.state.avatar} alt="Profile-pic" height="12" width="12"></img>}
+               {repo.name}
+               <a href={repo.html_url}>Link</a>
+
+          </li>
+        ))}
+      </ul>
+    )
   }
 
+  listOfLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
+
+    return(langsUnique)
+  }
+
+  renderLanguages(){
+    const arr = [];
+    {this.state.languages.map(language => (arr.push(language.language)))};
+    var langsUnique = ([...new Set(arr)]);
+    var arrayLength = langsUnique.length;
+    const size=[];
+    {this.state.languages.map(language => (size.push(language.size)))};
+    const subA = size.slice(0,arrayLength);
+    return(subA)
+  }
 
   renderInfo() {
     return (
