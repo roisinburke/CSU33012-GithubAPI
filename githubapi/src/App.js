@@ -4,6 +4,9 @@ import Popup from "reactjs-popup";
 import './App.css';
 import UserForm from "./components/UserForm";
 import styled from 'styled-components';
+import Chart from './components/Charts';
+import PieChart from './components/PieChart';
+
 
 class App extends Component {
   state = {
@@ -40,6 +43,26 @@ class App extends Component {
         const languages = res.data;
         this.setState({ repos , languages });
       })
+
+      this.getChartData();
+      this.getPieChartData();
+
+  }
+
+  getChartData(){
+    const followerVal = this.state.followers
+    const followingVal = this.state.following
+    this.setState({
+      chartData:{
+        labels: ['Followers' , 'Following'
+        ],
+        datasets: [{
+            label:'',
+            backgroundColor: ['#FF5050','#7C3397'],
+            data: [followerVal , followingVal ,  0]
+        }]
+    }
+    })
   }
   renderList() {
     return (
@@ -75,12 +98,55 @@ class App extends Component {
     return(subA)
   }
 
+
+  getPieChartData(){
+    const labelLangs = this.listOfLanguages()
+    const dataLangs = this.renderLanguages()
+
+    this.setState({
+      pieChartData:{
+        labels: labelLangs,
+        datasets: [{
+            label:'',
+            backgroundColor: ['#C73E55','#593EC7','#3EC7BE','#C7C73E','#67C73E', '#9932CC', '#808000','#D8BFD8','#F4A460','#FF0000'],
+            data: dataLangs
+        }]
+    }
+    })
+  }
+
+
   renderInfo() {
     return (
       <div className='renders'>
         <p> <UserIcon src={this.state.avatar} alt="this.name" /></p>
         <p>{this.state.name} | {this.state.id}</p>
+        
+        <div className='languages'>
+        <Popup scrolling="yes" trigger={<button className="button"> Programming Languages </button>} modal closeOnDocumentClick>
+          <div>
+          <div><PieChart pieChartData={this.state.pieChartData}/></div>
+          </div>
+        </Popup>
+        </div>
+        
+        <div className='chart'>
+        <Popup scrolling="yes" trigger={<button className="button"> Followers</button>} modal closeOnDocumentClick>
+          <div>
 
+          <div><Chart chartData={this.state.chartData}/></div>
+          </div>
+        </Popup>
+        </div>
+
+        <div className='repos'>
+        <Popup  trigger={<button className="button"> Repos </button>} modal closeOnDocumentClick>
+          <div>
+            List of Repositories
+          {this.state.repos ? this.renderList() : null}
+          </div>
+        </Popup>
+        </div>
   </div>
     );
   }
