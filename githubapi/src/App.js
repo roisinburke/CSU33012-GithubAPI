@@ -58,7 +58,7 @@ class App extends Component {
         ],
         datasets: [{
             label:'',
-            backgroundColor: ['#FF5050','#7C3397'],
+            backgroundColor: ['#9999ff','#ff99ff'],
             data: [followerVal , followingVal ,  0]
         }]
     }
@@ -108,7 +108,7 @@ class App extends Component {
         labels: labelLangs,
         datasets: [{
             label:'',
-            backgroundColor: ['#C73E55','#593EC7','#3EC7BE','#C7C73E','#67C73E', '#9932CC', '#808000','#D8BFD8','#F4A460','#FF0000'],
+            backgroundColor: ['#9999ff','#ff99ff','#3EC7BE','#33ccff','#ffff66', '#00ffcc', '#ffcc66','#99ff99','#9900cc','#cc66ff'],
             data: dataLangs
         }]
     }
@@ -140,9 +140,9 @@ class App extends Component {
         </div>
 
         <div className='repos'>
-        <Popup  trigger={<button className="button"> Repos </button>} modal closeOnDocumentClick>
+        <Popup  trigger={<button className="button"> Repositories </button>} modal closeOnDocumentClick>
           <div>
-            List of Repositories
+            Repositories
           {this.state.repos ? this.renderList() : null}
           </div>
         </Popup>
