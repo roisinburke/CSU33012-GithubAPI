@@ -9,6 +9,7 @@ import PieChart from './components/PieChart';
 
 
 class App extends Component {
+
   state = {
     name: null,
     id: null,
@@ -19,6 +20,9 @@ class App extends Component {
     chartData: [],
     pieChartData:[]
   }
+  // two variables users and repos which are the urls
+  // using axios to retrieve the data from the github api 
+  // extract relevant information from api - user info, repos and languages
 
   retrieveInfo = async (e) => {
     e.preventDefault();
@@ -48,7 +52,9 @@ class App extends Component {
       this.getPieChartData();
 
   }
-
+  
+  // chart data
+  // two data points, followers and number of people they're following
   getChartData(){
     const followerVal = this.state.followers
     const followingVal = this.state.following
@@ -64,6 +70,8 @@ class App extends Component {
     }
     })
   }
+
+  // repo link
   renderList() {
     return (
       <ul>
@@ -79,6 +87,8 @@ class App extends Component {
     )
   }
 
+  //get list of languages used by github user 
+  //get the amount of each different language used by the github user 
   listOfLanguages(){
     const arr = [];
     {this.state.languages.map(language => (arr.push(language.language)))};
@@ -86,7 +96,6 @@ class App extends Component {
 
     return(langsUnique)
   }
-
   renderLanguages(){
     const arr = [];
     {this.state.languages.map(language => (arr.push(language.language)))};
@@ -99,6 +108,8 @@ class App extends Component {
   }
 
 
+  // pie chart data 
+  // languages and proportion of that languages' use in all repos 
   getPieChartData(){
     const labelLangs = this.listOfLanguages()
     const dataLangs = this.renderLanguages()
@@ -116,6 +127,8 @@ class App extends Component {
   }
 
 
+  // render user info and visualised data 
+  // buttons and charts
   renderInfo() {
     return (
       <div className='renders'>
@@ -151,7 +164,8 @@ class App extends Component {
     );
   }
 
-
+  // render page layout and search bar  
+  // header, footer, searchbar
   render() {
 
     return (
@@ -165,7 +179,7 @@ class App extends Component {
           :
           <p id="loading-statement">Search GitHub Username</p>}
       <footer>
-				<p>By Róisín Burke: 18328036</p>
+				<p> Róisín Burke: 18328036</p>
 			</footer>
       </div>
 
