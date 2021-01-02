@@ -54,7 +54,8 @@ class App extends Component {
   }
   
   // chart data
-  // two data points, followers and number of people they're following
+  // two data points, followers and number of people they're following 
+
   getChartData(){
     const followerVal = this.state.followers
     const followingVal = this.state.following
@@ -72,6 +73,7 @@ class App extends Component {
   }
 
   // repo link
+
   renderList() {
     return (
       <ul>
@@ -88,7 +90,8 @@ class App extends Component {
   }
 
   //get list of languages used by github user 
-  //get the amount of each different language used by the github user 
+  //get the amount of each different language used by the github user
+
   listOfLanguages(){
     const arr = [];
     {this.state.languages.map(language => (arr.push(language.language)))};
@@ -110,6 +113,7 @@ class App extends Component {
 
   // pie chart data 
   // languages and proportion of that languages' use in all repos 
+
   getPieChartData(){
     const labelLangs = this.listOfLanguages()
     const dataLangs = this.renderLanguages()
@@ -129,6 +133,7 @@ class App extends Component {
 
   // render user info and visualised data 
   // buttons and charts
+
   renderInfo() {
     return (
       <div className='renders'>
@@ -166,6 +171,7 @@ class App extends Component {
 
   // render page layout and search bar  
   // header, footer, searchbar
+  
   render() {
 
     return (
