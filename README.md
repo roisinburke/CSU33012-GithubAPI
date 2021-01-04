@@ -10,7 +10,7 @@ The buttons display:
 
 
 ## Video Demo
-
+![](https://github.com/roisinburke/CSU33012-GithubAPI/blob/branch2/screen%20recordings/Assignment%206%20-%20github%20data%20visualised.gif)
 
 ## Installation for Independent Development
 #### To try, clone the repository and in your terminal enter 
