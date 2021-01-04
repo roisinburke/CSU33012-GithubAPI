@@ -21,3 +21,7 @@ The buttons display:
 The app will open and run on your browser on http://localhost:3000/
 
 ## Resources
+- [Axios Library](https://www.npmjs.com/package/axios)
+- [React.js](https://reactjs.org/)
+- [Github API](https://docs.github.com/en/free-pro-team@latest/developers/apps/using-the-github-api-in-your-app)
+- [Building GitHub Profile Analytics using React](https://medium.com/hackernoon/building-github-profile-analytics-using-react-part-1-37e03b0c3366)
